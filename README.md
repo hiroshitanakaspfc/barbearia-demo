@@ -79,6 +79,12 @@ Uma chave única em `agendamentos` (barbeiro, data, hora e `ocupa_horario`) impe
 ![Formulário de agendamento](docs/agendar.png)
 ![Painel do dono](docs/painel.png)
 
+## Uso de IA
+
+Este projeto foi desenvolvido com o auxílio do Claude (Anthropic) como ferramenta
+de apoio ao código, à revisão de segurança e à documentação. Revisei, testei e
+adaptei o resultado, e sou responsável pelo conteúdo do repositório.
+
 ## Autor
 
 Luiz Hiroshi Tanaka, estudante de Desenvolvimento de Sistemas no SENAI.
