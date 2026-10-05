@@ -82,4 +82,4 @@ Uma chave única em `agendamentos` (barbeiro, data, hora e `ocupa_horario`) impe
 ## Autor
 
 Luiz Hiroshi Tanaka, estudante de Desenvolvimento de Sistemas no SENAI.
-[LinkedIn](www.linkedin.com/in/luiz-hiroshi-tanaka-9159442aa) | [GitHub](https://github.com/hiroshitanakaspfc)
+[LinkedIn](https://www.linkedin.com/in/luiz-hiroshi-tanaka-9159442aa) | [GitHub](https://github.com/hiroshitanakaspfc)
