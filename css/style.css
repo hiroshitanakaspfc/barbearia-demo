@@ -1,0 +1,185 @@
+/* ===== VARIÁVEIS: mude as cores aqui e o site inteiro muda ===== */
+:root {
+  --azul: #14213d;      /* texto e fundos escuros */
+  --vermelho: #b3202a;  /* destaque (botões) */
+  --branco: #f4f6f7;    /* fundo da página */
+  --cinza: #5c6670;     /* textos secundários */
+  --linha: #d5dade;     /* divisórias */
+}
+
+/* ===== BASE ===== */
+* { box-sizing: border-box; margin: 0; padding: 0; } /* zera margens e facilita o cálculo de tamanhos */
+
+body {
+  font-family: "Source Sans 3", Arial, sans-serif;
+  background: var(--branco);
+  color: var(--azul);
+  line-height: 1.6;
+}
+
+h1, h2, .logo {
+  font-family: "Oswald", Impact, sans-serif; /* fonte de título */
+  line-height: 1.15;
+}
+
+a { color: inherit; }
+
+/* ===== CABEÇALHO ===== */
+.topo {
+  display: flex;
+  flex-wrap: wrap;            /* no celular, o menu desce para a linha de baixo */
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem 1.5rem;
+  padding: 1rem 1.25rem;
+}
+.logo { font-size: 1.4rem; font-weight: 700; text-decoration: none; }
+.topo nav { display: flex; gap: 1.25rem; }
+.topo nav a { text-decoration: none; color: var(--cinza); }
+.topo nav a:hover { color: var(--vermelho); }
+
+/* Faixa listrada: o elemento de destaque do site */
+.poste {
+  height: 10px;
+  background: repeating-linear-gradient(
+    135deg,
+    var(--vermelho) 0 14px,
+    var(--branco) 14px 28px,
+    var(--azul) 28px 42px,
+    var(--branco) 42px 56px
+  );
+}
+
+/* ===== HERO ===== */
+.hero {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 4rem 1.25rem 3.5rem;
+}
+.hero h1 { font-size: clamp(2.2rem, 7vw, 3.8rem); margin-bottom: 1rem; }
+.hero p { color: var(--cinza); max-width: 34rem; margin-bottom: 1.75rem; }
+
+/* ===== BOTÃO ===== */
+.botao {
+  display: inline-block;
+  background: var(--vermelho);
+  color: #fff;
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.botao:hover { background: var(--azul); }
+.botao:focus-visible { outline: 3px solid var(--azul); outline-offset: 3px; } /* foco visível para quem usa teclado */
+
+/* ===== SEÇÕES ===== */
+.secao {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem;
+  border-top: 1px solid var(--linha);
+}
+.secao h2 { font-size: 1.8rem; margin-bottom: 1.25rem; }
+.secao p { margin-bottom: 1rem; }
+
+/* Lista de serviços: nome | duração | preço */
+.lista-servicos { list-style: none; }
+.lista-servicos li {
+  display: grid;
+  grid-template-columns: 1fr auto 4.5rem; /* nome ocupa o que sobrar */
+  gap: 1rem;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--linha);
+}
+.lista-servicos li span:nth-child(2) { color: var(--cinza); }
+.lista-servicos strong { text-align: right; }
+
+/* ===== GALERIA ===== */
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 colunas no celular */
+  gap: 0.75rem;
+}
+.foto {
+  aspect-ratio: 1 / 1;           /* quadrado */
+  background: var(--linha);
+  display: grid;
+  place-items: center;           /* centraliza o texto */
+  color: var(--cinza);
+}
+.foto img { width: 100%; height: 100%; object-fit: cover; } /* para quando você colocar fotos reais */
+
+/* ===== RODAPÉ ===== */
+.rodape {
+  background: var(--azul);
+  color: var(--branco);
+  text-align: center;
+  padding: 1.5rem 1.25rem;
+  margin-top: 2rem;
+}
+
+/* ===== TELAS MAIORES (computador) ===== */
+@media (min-width: 700px) {
+  .topo { padding: 1.25rem 3rem; }
+  .galeria { grid-template-columns: repeat(4, 1fr); } /* 4 colunas */
+}
+
+/* Respeita quem desativou animações no sistema (por enquanto não há animações) */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+
+/* ===== FORMULÁRIO DE AGENDAMENTO ===== */
+.secao-form { border-top: none; }
+.titulo-pagina { font-family: "Oswald", Impact, sans-serif; font-size: 2.2rem; margin-bottom: 1.25rem; }
+
+.formulario { display: grid; gap: 0.4rem; max-width: 28rem; }
+.formulario label { font-weight: 600; margin-top: 0.8rem; }
+.formulario input,
+.formulario select {
+  font: inherit;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid var(--cinza);
+  border-radius: 4px;
+  background: #fff;
+  color: var(--azul);
+}
+.formulario input:focus-visible,
+.formulario select:focus-visible { outline: 3px solid var(--azul); outline-offset: 1px; }
+.formulario .botao { margin-top: 1.5rem; border: 0; cursor: pointer; font: inherit; font-weight: 600; }
+
+/* Avisos de sucesso e de erro */
+.aviso { padding: 1rem 1.1rem; border-radius: 4px; margin-bottom: 1.5rem; max-width: 28rem; }
+.aviso ul { margin: 0.4rem 0 0 1.2rem; }
+.sucesso { background: #e3f1e6; border-left: 5px solid #2e7d46; }
+.erro { background: #fbe7e8; border-left: 5px solid var(--vermelho); }
+
+/* ===== PAINEL DO DONO ===== */
+.secao-painel { max-width: 64rem; border-top: none; }
+.painel-topo { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.painel-topo .titulo-pagina { margin-bottom: 0.5rem; }
+.filtros { color: var(--cinza); margin-bottom: 1rem; }
+.filtros a { color: var(--vermelho); }
+
+/* A tabela rola para o lado em telas pequenas, sem quebrar a página */
+.tabela-wrap { overflow-x: auto; border: 1px solid var(--linha); background: #fff; }
+.tabela { width: 100%; border-collapse: collapse; min-width: 44rem; }
+.tabela th, .tabela td { padding: 0.7rem 0.8rem; text-align: left; border-bottom: 1px solid var(--linha); vertical-align: top; }
+.tabela th { background: var(--azul); color: var(--branco); font-weight: 600; }
+.tabela small { color: var(--cinza); }
+
+.etiqueta { display: inline-block; padding: 0.15rem 0.6rem; border-radius: 999px; font-size: 0.85rem; font-weight: 600; }
+.etiqueta-agendado { background: #e4ebf7; color: var(--azul); }
+.etiqueta-concluido { background: #e3f1e6; color: #1f5e34; }
+.etiqueta-cancelado { background: #fbe7e8; color: #8f1b23; }
+
+.acoes form { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+.btn-peq {
+  font: inherit; font-size: 0.9rem; font-weight: 600;
+  padding: 0.35rem 0.8rem; border-radius: 4px; cursor: pointer;
+  background: #fff; color: var(--azul); border: 1px solid var(--azul);
+}
+.btn-peq:hover { background: var(--azul); color: #fff; }
+.btn-perigo { color: var(--vermelho); border-color: var(--vermelho); }
+.btn-perigo:hover { background: var(--vermelho); color: #fff; }
+.btn-peq:focus-visible { outline: 3px solid var(--azul); outline-offset: 2px; }

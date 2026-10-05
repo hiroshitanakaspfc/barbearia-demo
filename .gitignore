@@ -1,0 +1,5 @@
+includes/conexao.php
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
